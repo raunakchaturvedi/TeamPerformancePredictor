@@ -1,0 +1,38 @@
+﻿@model TPPProject.Models.Performance
+
+<h2 class="mt-3">Create Performance Record</h2>
+
+<form method="post" action="/Performance/Create" class="mt-3">
+    <div class="mb-3">
+        <label class="form-label">Employee</label>
+        <select name="EmployeeId" class="form-control">
+            @foreach (var emp in ViewBag.Employees)
+            {
+                <option value="@emp.EmployeeId">@emp.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tasks Completed</label>
+        <input type="number" name="TasksCompleted" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Deadlines Met</label>
+        <input type="number" name="DeadlinesMet" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Productivity Score</label>
+        <input type="number" name="ProductivityScore" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Teamwork Score</label>
+        <input type="number" name="TeamworkScore" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="/Performance" class="btn btn-secondary">Back</a>
+</form>

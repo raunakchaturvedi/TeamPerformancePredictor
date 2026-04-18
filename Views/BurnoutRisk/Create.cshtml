@@ -1,0 +1,38 @@
+﻿@model TPPProject.Models.BurnoutRisk
+
+<h2 class="mt-3">Create Burnout Risk Record</h2>
+
+<form method="post" action="/BurnoutRisk/Create" class="mt-3">
+    <div class="mb-3">
+        <label class="form-label">Employee</label>
+        <select name="EmployeeId" class="form-control" required>
+            @foreach (var emp in ViewBag.Employees)
+            {
+                <option value="@emp.EmployeeId">@emp.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Working Hours</label>
+        <input type="number" name="WorkingHours" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Overtime Hours</label>
+        <input type="number" name="OvertimeHours" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Stress Level</label>
+        <input type="number" name="StressLevel" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Leave Count</label>
+        <input type="number" name="LeaveCount" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="/BurnoutRisk" class="btn btn-secondary">Back</a>
+</form>
