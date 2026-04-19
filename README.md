@@ -103,13 +103,6 @@ Unit testing is implemented using **NUnit**.
 - Tested team prediction logic
 - Verified score calculation
 - Validated performance classification
-
----
-
-## 📸 Screenshots
-
-(Add your project screenshots here)
-
 ---
 
 ## ⚙️ How to Run the Project
