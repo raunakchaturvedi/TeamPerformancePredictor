@@ -1,64 +1,138 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "About";
 }
 
-<div class="text-center mt-4 mb-5">
-    <h1 class="display-4 fw-bold">Team Performance Predictor</h1>
-    <p class="lead">
-        Employee Management and Analysis System using ASP.NET Core MVC
-    </p>
-</div>
+<div class="container py-4">
 
-<div class="row g-4">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">TeamLytics</h1>
+        <p class="lead text-muted">
+            A web-based system to analyze employee burnout, measure employee performance,
+            and predict overall team performance in an IT company.
+        </p>
+    </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-            <div class="card-body text-center">
-                <h4 class="card-title">Employees</h4>
-                <p class="card-text">Manage employee details like name and department.</p>
-                <a href="/Employees" class="btn btn-primary">Go to Employees</a>
-            </div>
+    <!-- Project Objective -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="text-dark">Objective</h3>
+            <p>
+                The main objective of this Website is to evaluate employees based on burnout risk
+                and performance metrics, and then predict the overall performance of a team.
+                This helps management identify strong teams, weak teams, and employees who may need support.
+            </p>
         </div>
     </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-            <div class="card-body text-center">
-                <h4 class="card-title">Burnout Risk</h4>
-                <p class="card-text">Analyze employee burnout risk based on workload and stress.</p>
-                <a href="/BurnoutRisk" class="btn btn-danger">Go to Burnout Risk</a>
-            </div>
+    <!-- Burnout Risk -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="text-danger">What is Burnout Risk?</h3>
+            <p>
+                Burnout risk shows how stressed or overloaded an employee is.
+                It is calculated using factors such as:
+            </p>
+            <ul>
+                <li>Working Hours</li>
+                <li>Overtime Hours</li>
+                <li>Stress Level</li>
+                <li>Leave Count</li>
+            </ul>
+            <p><strong>Burnout Formula:</strong></p>
+            <p class="bg-light p-2 rounded">
+                Burnout Score = Working Hours + Overtime Hours + Stress Level - Leave Count
+            </p>
+            <p>
+                Based on this score, the employee is classified as:
+                <strong>High</strong>, <strong>Medium</strong>, or <strong>Low</strong> burnout risk.
+            </p>
         </div>
     </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-            <div class="card-body text-center">
-                <h4 class="card-title">Performance</h4>
-                <p class="card-text">Track tasks, deadlines, productivity, and teamwork score.</p>
-                <a href="/Performance" class="btn btn-success">Go to Performance</a>
-            </div>
+    <!-- Performance -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="text-success">What is Employee Performance?</h3>
+            <p>
+                Employee performance shows how well an employee is doing in work.
+                It is calculated using:
+            </p>
+            <ul>
+                <li>Tasks Completed</li>
+                <li>Deadlines Met</li>
+                <li>Productivity Score</li>
+                <li>Teamwork Score</li>
+            </ul>
+            <p><strong>Performance Formula:</strong></p>
+            <p class="bg-light p-2 rounded">
+                Performance Score = Tasks Completed + Deadlines Met + Productivity Score + Teamwork Score
+            </p>
+            <p>
+                Based on this score, employee performance is classified as:
+                <strong>High</strong>, <strong>Medium</strong>, or <strong>Low</strong>.
+            </p>
         </div>
     </div>
 
-    <div class="col-md-6">
-        <div class="card shadow-sm h-100">
-            <div class="card-body text-center">
-                <h4 class="card-title">Dashboard</h4>
-                <p class="card-text">View overall project statistics and summary insights.</p>
-                <a href="/Dashboard" class="btn btn-warning">Go to Dashboard</a>
-            </div>
+    <!-- Team Performance -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="text-primary">What is Team Performance Predictor?</h3>
+            <p>
+                Team performance is predicted by combining employee burnout and employee performance
+                for all employees in a team.
+            </p>
+            <p><strong>Team Formula:</strong></p>
+            <p class="bg-light p-2 rounded">
+                Team Score = (High Performance × 2) + (Medium Performance × 1)
+                - (High Burnout × 2) - (Medium Burnout × 1)
+            </p>
+            <p>
+                Based on the final score:
+            </p>
+            <ul>
+                <li><strong>Score ≥ 2</strong> → High Team Performance</li>
+                <li><strong>Score ≥ 0</strong> → Medium Team Performance</li>
+                <li><strong>Score &lt; 0</strong> → Low Team Performance</li>
+            </ul>
         </div>
     </div>
 
-    <div class="col-md-6">
-        <div class="card shadow-sm h-100">
-            <div class="card-body text-center">
-                <h4 class="card-title">Report</h4>
-                <p class="card-text">See combined employee, burnout, and performance report.</p>
-                <a href="/Report" class="btn btn-dark">Go to Report</a>
-            </div>
+    <!-- Modules -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="text-dark">Project Modules</h3>
+            <ul>
+                <li><strong>Teams Module</strong> – manages team details</li>
+                <li><strong>Employees Module</strong> – manages employee details</li>
+                <li><strong>Burnout Risk Module</strong> – calculates burnout level</li>
+                <li><strong>Performance Module</strong> – calculates employee performance</li>
+                <li><strong>Dashboard</strong> – shows summary statistics</li>
+                <li><strong>Report Module</strong> – shows combined employee report</li>
+                <li><strong>Team Predictor</strong> – predicts overall team performance</li>
+            </ul>
         </div>
+    </div>
+
+    <!-- Technologies -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h3 class="text-dark">Technologies Used</h3>
+            <ul>
+                <li>ASP.NET Core MVC</li>
+                <li>Entity Framework Core</li>
+                <li>MySQL Database</li>
+                <li>Bootstrap</li>
+                <li>NUnit Testing</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center mt-4">
+        <a href="/Dashboard" class="btn btn-primary btn-lg me-2">Open Dashboard</a>
+        <a href="/TeamPerformance" class="btn btn-success btn-lg me-2">Open Team Predictor</a>
+        <a href="/Report" class="btn btn-dark btn-lg">Open Report</a>
     </div>
 
 </div>

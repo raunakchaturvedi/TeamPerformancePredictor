@@ -1,3 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="../TPPProject.Tests/TPPProject.Tests.csproj" Id="9d01da7b-3310-417d-96ab-fed0372c29ba" />
   <Project Path="TPPProject.csproj" />
 </Solution>
