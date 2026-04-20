@@ -2,71 +2,142 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<h2 class="mt-3 mb-4">Dashboard</h2>
+<div class="dashboard-wrapper">
 
-<div class="row">
-    <div class="col-md-3">
-        <div class="card text-white bg-primary mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Total Employees</h5>
-                <h2>@ViewBag.TotalEmployees</h2>
-            </div>
+    <div class="dashboard-header mb-4">
+        <div>
+            <h2 class="dashboard-title">TeamLytics Dashboard</h2>
+            <p class="dashboard-subtitle">Overview of employee, burnout, performance, and team insights</p>
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="card text-white bg-danger mb-3">
-            <div class="card-body">
-                <h5 class="card-title">High Burnout Risk</h5>
-                <h2>@ViewBag.HighBurnout</h2>
-            </div>
-        </div>
-    </div>
+    <div class="row g-4">
 
-    <div class="col-md-3">
-        <div class="card text-dark bg-warning mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Medium Burnout Risk</h5>
-                <h2>@ViewBag.MediumBurnout</h2>
+        <!-- Total Employees -->
+        <div class="col-md-3">
+            <div class="dashboard-card stat-card blue-card">
+                <div class="stat-label">Total Employees</div>
+                <div class="stat-value">@ViewBag.TotalEmployees</div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-3">
-        <div class="card text-white bg-success mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Low Burnout Risk</h5>
-                <h2>@ViewBag.LowBurnout</h2>
+        <!-- High Burnout -->
+        <div class="col-md-3">
+            <div class="dashboard-card stat-card red-card">
+                <div class="stat-label">High Burnout</div>
+                <div class="stat-value">@ViewBag.HighBurnout</div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row mt-3">
-    <div class="col-md-4">
-        <div class="card text-white bg-success mb-3">
-            <div class="card-body">
-                <h5 class="card-title">High Performance</h5>
-                <h2>@ViewBag.HighPerformance</h2>
+        <!-- Medium Burnout -->
+        <div class="col-md-3">
+            <div class="dashboard-card stat-card yellow-card">
+                <div class="stat-label">Medium Burnout</div>
+                <div class="stat-value">@ViewBag.MediumBurnout</div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card text-dark bg-warning mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Medium Performance</h5>
-                <h2>@ViewBag.MediumPerformance</h2>
+        <!-- Low Burnout -->
+        <div class="col-md-3">
+            <div class="dashboard-card stat-card green-card">
+                <div class="stat-label">Low Burnout</div>
+                <div class="stat-value">@ViewBag.LowBurnout</div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card text-white bg-secondary mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Low Performance</h5>
-                <h2>@ViewBag.LowPerformance</h2>
+        <!-- Burnout Summary -->
+        <div class="col-lg-6">
+            <div class="dashboard-card chart-card">
+                <h4 class="section-title">Burnout Summary</h4>
+                <div class="progress-item">
+                    <div class="d-flex justify-content-between">
+                        <span>High Burnout</span>
+                        <span>@ViewBag.HighBurnout</span>
+                    </div>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar bg-danger" style="width:@(ViewBag.TotalEmployees > 0 ? (ViewBag.HighBurnout * 100 / ViewBag.TotalEmployees) : 0)%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="d-flex justify-content-between">
+                        <span>Medium Burnout</span>
+                        <span>@ViewBag.MediumBurnout</span>
+                    </div>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar bg-warning" style="width:@(ViewBag.TotalEmployees > 0 ? (ViewBag.MediumBurnout * 100 / ViewBag.TotalEmployees) : 0)%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="d-flex justify-content-between">
+                        <span>Low Burnout</span>
+                        <span>@ViewBag.LowBurnout</span>
+                    </div>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar bg-success" style="width:@(ViewBag.TotalEmployees > 0 ? (ViewBag.LowBurnout * 100 / ViewBag.TotalEmployees) : 0)%"></div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Performance Summary -->
+        <div class="col-lg-6">
+            <div class="dashboard-card chart-card">
+                <h4 class="section-title">Performance Summary</h4>
+                <div class="progress-item">
+                    <div class="d-flex justify-content-between">
+                        <span>High Performance</span>
+                        <span>@ViewBag.HighPerformance</span>
+                    </div>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar bg-success" style="width:@(ViewBag.TotalEmployees > 0 ? (ViewBag.HighPerformance * 100 / ViewBag.TotalEmployees) : 0)%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="d-flex justify-content-between">
+                        <span>Medium Performance</span>
+                        <span>@ViewBag.MediumPerformance</span>
+                    </div>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar bg-warning" style="width:@(ViewBag.TotalEmployees > 0 ? (ViewBag.MediumPerformance * 100 / ViewBag.TotalEmployees) : 0)%"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="d-flex justify-content-between">
+                        <span>Low Performance</span>
+                        <span>@ViewBag.LowPerformance</span>
+                    </div>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar bg-secondary" style="width:@(ViewBag.TotalEmployees > 0 ? (ViewBag.LowPerformance * 100 / ViewBag.TotalEmployees) : 0)%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Insight -->
+        <div class="col-md-6">
+            <div class="dashboard-card info-card">
+                <h4 class="section-title">Burnout Insight</h4>
+                <p class="info-text">
+                    This section helps management understand how many employees are under high, medium,
+                    or low burnout risk based on workload and stress factors.
+                </p>
+            </div>
+        </div>
+
+        <!-- Quick Insight -->
+        <div class="col-md-6">
+            <div class="dashboard-card info-card">
+                <h4 class="section-title">Performance Insight</h4>
+                <p class="info-text">
+                    This section shows how employees are performing based on task completion,
+                    deadlines, productivity, and teamwork score.
+                </p>
+            </div>
+        </div>
+
     </div>
 </div>
